@@ -26,4 +26,9 @@ for image in images:
         #move IMG to path (create folder if not already there)
         if not os.path.exists(destination):
             os.makedirs(destination)
-        os.rename(f'Photos/{imageName}', f'{destination}/{imageName}')
+        try:
+            os.rename(f'Photos/{imageName}', f'{destination}/{imageName}')
+            print(f'INFO: File {imageName} moved to {destination}')
+        except:
+            print(f'WARN: File {imageName} not moved to {destination}')
+        
